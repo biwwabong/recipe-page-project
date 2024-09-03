@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Optional: Center container vertically */
+  background-color: hsl(30, 54%, 90%);
+  font-family: "Outfit", serif;
+  font-weight: 400;
+  min-height: 100vh; /* Ensure the body takes at least full viewport height */
+}
+
+/* Base styles for all devices */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Full width by default (for mobile) */
+  max-width: 100%; /* Prevent overflow on small screens */
+  margin: 7em auto; /* Center the container horizontally, add top and bottom margin */
+  padding: 2.2em; /* Padding for spacing */
+  gap: 16px;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 1.6em;
+}
+
+/* Make the image responsive */
+figure {
+  width: 100%;
+  margin: 0;
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.8em;
+}
+
+h1,
+h3 {
+  align-self: flex-start; /* Aligns h1 and h3 to the left within the flex container */
+  font-family: "Young Serif", serif;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 1.5em;
+  color: hsl(14, 45%, 36%);
+}
+
+p {
+  align-self: flex-start; /* Align paragraphs to the left */
+  margin-bottom: 1em;
+  color: hsl(30, 10%, 34%);
+}
+
+strong {
+  color: hsl(24, 5%, 18%);
+}
+
+/* Style unordered lists to have custom colored bullets and indent them */
+ul,
+ol {
+  align-self: flex-start; /* Align lists to the left */
+  list-style-position: inside; /* Ensure bullets/numbers align with the text */
+  padding-left: 0.4em; /* Indent the list slightly */
+}
+
+li {
+  color: hsl(30, 10%, 34%);
+  line-height: 1.6; /* Adjusts the line height to increase or decrease spacing */
+}
+
+/* Specific styles for unordered lists in .prep-block */
+.prep-block ul {
+  list-style: none; /* Remove default bullets */
+  padding-left: 0.4em; /* Add indent for the list inside prep-block */
+}
+
+.prep-block ul li {
+  position: relative; /* Establish a positioned context for ::before */
+  padding-left: 1em; /* Adjust padding to make space for the custom bullet */
+}
+
+/* Create custom bullet using ::before for .prep-block ul */
+.prep-block ul li::before {
+  content: "•"; /* Bullet character */
+  position: absolute;
+  left: 0; /* Position bullet to the left of the list item */
+  color: hsl(332, 51%, 32%); /* Custom bullet color */
+  font-size: 1em; /* Adjust size of bullet */
+  line-height: 1; /* Align bullet with text */
+}
+
+/* Style ordered lists to have custom colored numbers */
+ol {
+  list-style: none;
+  counter-reset: custom-counter;
+  padding-left: 0.4em; /* Add indent for ordered list */
+}
+
+ol li {
+  counter-increment: custom-counter;
+  position: relative;
+  padding-left: 1.5em;
+}
+
+ol li::before {
+  content: counter(custom-counter) ". ";
+  position: absolute;
+  left: 0; /* Position number to the left of the list item */
+  color: hsl(14, 45%, 36%); /* Custom color for numbers */
+  font-size: 1em;
+  font-weight: 600; /* Make numbers bold */
+  line-height: 1;
+}
+
+.prep-block {
+  align-self: flex-start; /* Align prep-block contents to the left */
+  background-color: hsl(330, 100%, 98%);
+  width: 100%;
+  padding: 1em 2em;
+  border-radius: 0.7em;
+}
+
+.prep {
+  font-family: "Outfit", serif;
+  font-weight: 600;
+  font-size: 1.1em;
+  color: hsl(332, 51%, 32%);
+}
+
+/* Media query for desktop devices */
+@media (min-width: 768px) {
+  main {
+    width: 50%; /* 50% width for larger screens (desktop) */
+    max-width: 800px; /* Optional: Set a maximum width for the container */
+  }
+}
